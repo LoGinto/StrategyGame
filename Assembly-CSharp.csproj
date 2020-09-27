@@ -52,9 +52,12 @@
     <UnityVersion>2020.1.5f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BuildScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Placement_BluePrint.cs" />
-    <Compile Include="Assets\Scripts\BuildScript.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Resources.cs" />
+    <Compile Include="Assets\Scripts\BuildingInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />

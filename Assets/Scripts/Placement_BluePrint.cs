@@ -5,17 +5,22 @@ using UnityEngine;
 public class Placement_BluePrint : MonoBehaviour
 {
     RaycastHit hit;
+    public int id = 1;
     Vector3 movePoint;
     public GameObject prefab;
     Camera kamera;
-    public Material redMaterial;
-    public Material whiteTransparent;
+    //public Material redMaterial;
+    //public Material whiteTransparent;
     bool canSpawn = true;
-   // public LayerMask prohibitedLayer;
+    Resources resources;
+    BuildScript build;
+    // public LayerMask prohibitedLayer;
     // Start is called before the first frame update
     void Start()
     {
-        if(kamera == null)
+        resources = GameObject.FindGameObjectWithTag("RM").GetComponent<Resources>();
+        build = GameObject.FindGameObjectWithTag(id.ToString()).GetComponent<BuildScript>();
+        if (kamera == null)
         {
             kamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
@@ -42,7 +47,13 @@ public class Placement_BluePrint : MonoBehaviour
             {
                 Instantiate(prefab, transform.position, transform.rotation);
                 Destroy(gameObject);
+                resources.MinusResource(1, build.goldCost);
+                resources.MinusResource(2, build.woodCost);
             }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
         }
     }
 }
