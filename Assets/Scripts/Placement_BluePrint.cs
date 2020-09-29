@@ -56,4 +56,12 @@ public class Placement_BluePrint : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void SetCanSpawn(bool value)
+    {
+        canSpawn = value;
+    }
+    public bool GetCanSpawn()
+    {
+        return canSpawn;
+    }
 }
