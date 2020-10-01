@@ -14,10 +14,12 @@ public class Placement_BluePrint : MonoBehaviour
     bool canSpawn = true;
     Resources resources;
     BuildScript build;
+    SelectionCasst selection;
     // public LayerMask prohibitedLayer;
     // Start is called before the first frame update
     void Start()
     {
+        selection = GameObject.FindObjectOfType<SelectionCasst>();
         resources = GameObject.FindGameObjectWithTag("RM").GetComponent<Resources>();
         build = GameObject.FindGameObjectWithTag(id.ToString()).GetComponent<BuildScript>();
         if (kamera == null)
@@ -47,12 +49,14 @@ public class Placement_BluePrint : MonoBehaviour
             {
                 Instantiate(prefab, transform.position, transform.rotation);
                 Destroy(gameObject);
+                selection.SetCanSelect(true);
                 resources.MinusResource(1, build.goldCost);
                 resources.MinusResource(2, build.woodCost);
             }
         }
         if (Input.GetMouseButtonDown(1))
         {
+            selection.SetCanSelect(true);
             Destroy(gameObject);
         }
     }
