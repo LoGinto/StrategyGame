@@ -8,6 +8,9 @@ TagManager:
   - RM
   - 1
   - Ground
+  - HouseCanvasGroup
+  - HouseCanvasFoodText
+  - HouseCanvasGoldText
   layers:
   - Default
   - TransparentFX

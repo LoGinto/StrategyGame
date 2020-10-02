@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5042093023976045188}
   - component: {fileID: 2465996143288423822}
   - component: {fileID: 4024987604571181591}
+  - component: {fileID: 1805894662}
   m_Layer: 9
   m_Name: Baker_house
   m_TagString: Building
@@ -146,3 +147,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectingMat: {fileID: 2100000, guid: 1a177460346f6ea4985306c65257ba92, type: 2}
+--- !u!114 &1805894662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441837206626142370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ce418174ac1ee48ab3934d27a7a205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCost: 5
+  foodCost: 2

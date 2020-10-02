@@ -6,6 +6,7 @@ public class Resources : MonoBehaviour
 {
     //resource manager
     [Header("Ints")]
+    public int maxResource = 100;
     public int goldResource = 100;
     public int woodResource = 100;
     public int foodResource = 100;
@@ -31,6 +32,24 @@ public class Resources : MonoBehaviour
         woodText.text = woodResource.ToString();
         foodText.text = foodResource.ToString();
         steelText.text = steelResource.ToString();
+
+        if (goldResource > maxResource)
+        {
+            goldResource = maxResource;
+        }
+        if(woodResource > maxResource)
+        {
+            woodResource = maxResource;
+        }
+        if (foodResource > maxResource)
+        {
+            foodResource = maxResource;
+        }
+        if (steelResource > maxResource)
+        {
+            steelResource = maxResource;
+        }
+
     }
     public void MinusResource(int id,int amount)
     {
@@ -70,6 +89,17 @@ public class Resources : MonoBehaviour
         else
         {
             return 0;
+        }
+    }
+    public void ChangeMaxCapacity(int amount,bool increment)
+    {
+        if (increment == true)
+        {
+            maxResource += amount;
+        }
+        else
+        {
+            maxResource -= amount;
         }
     }
 }

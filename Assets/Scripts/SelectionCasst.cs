@@ -28,6 +28,11 @@ public class SelectionCasst : MonoBehaviour
                 }
             }
         }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            selectedObj.GetComponent<BuildingInteraction>().NotSelected();
+            selectedObj = null;
+        }
     }
     public void SetCanSelect(bool value)
     {
@@ -36,5 +41,9 @@ public class SelectionCasst : MonoBehaviour
     public bool GetCanSelect()
     {
         return canSelect;
+    }
+    public GameObject GetSelectedObject()
+    {
+        return selectedObj;
     }
 }
