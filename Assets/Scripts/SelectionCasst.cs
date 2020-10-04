@@ -30,8 +30,11 @@ public class SelectionCasst : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            selectedObj.GetComponent<BuildingInteraction>().NotSelected();
-            selectedObj = null;
+            if (selectedObj != null)
+            {
+                selectedObj.GetComponent<BuildingInteraction>().NotSelected();
+                selectedObj = null;
+            }
         }
     }
     public void SetCanSelect(bool value)

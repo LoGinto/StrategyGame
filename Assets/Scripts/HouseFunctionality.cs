@@ -8,6 +8,9 @@ public class HouseFunctionality : MonoBehaviour
     //[SerializeField] GameObject unitToSpawn;
     [SerializeField] int coinCost = 5;
     [SerializeField] int foodCost = 2;
+    [SerializeField] GameObject objectToSpawn;
+    [SerializeField] Transform spawnAt;
+    [SerializeField] float timeToWaitBeforeSpawn = 5f;
     private Text goldCostText;
     private Text foodCostText;
     private CanvasGroup unitSpawnCanvasGroup;
@@ -63,9 +66,21 @@ public class HouseFunctionality : MonoBehaviour
     }
     public void Spawn()
     {
+        if (resources.GetResource(1) >= coinCost && resources.GetResource(3) >= foodCost)
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+        else
+        {
+            Debug.Log("Not enough resources to spawn");
+        }
+    }
+   IEnumerator SpawnCoroutine()
+    {
+        yield return new WaitForSeconds(timeToWaitBeforeSpawn);
         resources.MinusResource(1, coinCost);
         resources.MinusResource(3, foodCost);
-        Debug.Log("spawned at " + gameObject.name+ " Gold: " + resources.GetResource(1) + "Food:" + resources.GetResource(3));
+        Instantiate(objectToSpawn, spawnAt.position, Quaternion.identity);
+        Debug.Log("spawned at " + spawnAt.position + " Gold: " + resources.GetResource(1) + "Food:" + resources.GetResource(3));
     }
-   
 }
