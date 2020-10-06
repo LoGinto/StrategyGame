@@ -8,6 +8,8 @@ public class UnitSelection : MonoBehaviour
     [SerializeField] Collider[] selection;
     [SerializeField] LayerMask selectableLayer;//unit layer
     private Vector3 startpos, dragPos;
+    private List<MovementOfUnits> selectedUnits = new List<MovementOfUnits>();
+
     Camera cam;
     Ray ray;
     // Start is called before the first frame update
@@ -19,11 +21,24 @@ public class UnitSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            ray = cam.ScreenPointToRay(Input.mousePosition);            
+            if (Physics.Raycast(ray, out hit, 100f) && selectedUnits.Count > 0)
+            {
+                foreach(var unit in selectedUnits)
+                {
+                    unit.MoveUnit(hit.point);
+                }
+            }
+        }
         if (Input.GetMouseButton(1))
-        {           
+        {
+            DeselectObjects();
             RaycastHit hit;
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            Physics.Raycast(ray,out hit, 100f);
+            Physics.Raycast(ray, out hit, 100f);
             if (Input.GetMouseButtonDown(1))
             {
                 //drag start
@@ -35,8 +50,8 @@ public class UnitSelection : MonoBehaviour
             dragPos = hit.point;
             box.baseMax = dragPos;
             projector.aspectRatio = box.Size.x / box.Size.z;
-            projector.orthographicSize = box.Size.z*0.5f;
-            projector.transform.position = box.Center;  
+            projector.orthographicSize = box.Size.z * 0.5f;
+            projector.transform.position = box.Center;
         }
         else if (Input.GetMouseButtonUp(1))
         {
@@ -45,8 +60,35 @@ public class UnitSelection : MonoBehaviour
             projector.enabled = false;
             selection = Physics.OverlapBox(box.Center,box.Extents,Quaternion.identity,selectableLayer);
             //add it to unit list afterwards    
+            foreach(var obj in selection)
+            {
+                MovementOfUnits unit = obj.GetComponent<MovementOfUnits>();
+                if(unit != null)
+                {
+                    unit.Selected(true);
+                    selectedUnits.Add(unit);
+                }
+
+            }
         }
     }
+
+    private void DeselectObjects()
+    {
+        if (selectedUnits.Count > 0)
+        {
+            foreach (var obj in selectedUnits)
+            {
+                MovementOfUnits unit = obj.GetComponent<MovementOfUnits>();
+                if (unit != null)
+                {
+                    unit.Selected(false);
+                }
+            }
+            selectedUnits.Clear();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

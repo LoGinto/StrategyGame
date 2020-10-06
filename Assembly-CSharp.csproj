@@ -63,6 +63,9 @@
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Placement_BluePrint.cs" />
     <Compile Include="Assets\Scripts\UnitSelection.cs" />
+    <Compile Include="Assets\Scripts\Serialization\SerializationManager.cs" />
+    <Compile Include="Assets\Scripts\Serialization\SaveData.cs" />
+    <Compile Include="Assets\Scripts\MovementOfUnits.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Additional Models\Shader\Projector.shader" />
