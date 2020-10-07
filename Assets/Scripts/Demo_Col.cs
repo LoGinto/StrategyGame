@@ -21,7 +21,7 @@ public class Demo_Col : MonoBehaviour
         Collider[] overlapArray = Physics.OverlapSphere(centerOfRadius.position,radius);
         foreach(Collider collider in overlapArray)
         {
-            if(collider.tag == "Building")
+            if(collider.tag == "Building"||collider.gameObject.layer == 11)
             {
                 bluePrint.SetCanSpawn(false);
                 rend.sharedMaterial = redTransparent;

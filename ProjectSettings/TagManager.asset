@@ -11,6 +11,7 @@ TagManager:
   - HouseCanvasGroup
   - HouseCanvasFoodText
   - HouseCanvasGoldText
+  - 2
   layers:
   - Default
   - TransparentFX

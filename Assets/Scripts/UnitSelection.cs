@@ -29,7 +29,7 @@ public class UnitSelection : MonoBehaviour
             {
                 foreach(var unit in selectedUnits)
                 {
-                    unit.MoveUnit(hit.point);
+                    unit.MoveToSpot(hit.point,box.Center);
                 }
             }
         }
@@ -67,12 +67,13 @@ public class UnitSelection : MonoBehaviour
                 {
                     unit.Selected(true);
                     selectedUnits.Add(unit);
+                    unit.CalculateOffset((startpos + dragPos) * 0.5f);
                 }
 
             }
         }
     }
-
+    
     private void DeselectObjects()
     {
         if (selectedUnits.Count > 0)
