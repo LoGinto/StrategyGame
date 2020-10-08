@@ -13,6 +13,13 @@ public class PlaceholderForButton : MonoBehaviour
 
     public void ClickEventSpawn()
     {
-        selection.GetSelectedObject().GetComponent<HouseFunctionality>().Spawn();
+        if (selection.GetSelectedObject().GetComponent<HouseFunctionality>())
+        {
+            selection.GetSelectedObject().GetComponent<HouseFunctionality>().Spawn();
+        }
+        else if (selection.GetSelectedObject().GetComponent<WarUnitSpawn>())
+        {
+            selection.GetSelectedObject().GetComponent<WarUnitSpawn>().Spawn();
+        }
     }
 }

@@ -6,11 +6,12 @@ public class HouseFunctionality : MonoBehaviour
 {
     //[SerializeField]Transform spawnTransform;
     //[SerializeField] GameObject unitToSpawn;
-    [SerializeField] int coinCost = 5;
+    int coinCost;
     [SerializeField] int foodCost = 2;
     [SerializeField] GameObject objectToSpawn;
     [SerializeField] Transform spawnAt;
     [SerializeField] float timeToWaitBeforeSpawn = 5f;
+    [SerializeField] UnitCostObject unitCost;
     private Text goldCostText;
     private Text foodCostText;
     private CanvasGroup unitSpawnCanvasGroup;
@@ -20,6 +21,7 @@ public class HouseFunctionality : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinCost = unitCost.farmerGoldCost;
         selection = Camera.main.GetComponent<SelectionCasst>();
         unitSpawnCanvasGroup = GameObject.FindGameObjectWithTag("HouseCanvasGroup").GetComponent<CanvasGroup>();
         goldCostText = GameObject.FindGameObjectWithTag("HouseCanvasFoodText").GetComponent<Text>();
@@ -39,16 +41,29 @@ public class HouseFunctionality : MonoBehaviour
         {
             building = selection.GetSelectedObject().GetComponent<BuildingInteraction>();
         }
+        else
+        {
+            return;
+        }
     }
     private void ToggleUI()
     {
-        if (building != null)
+        try
         {
-            if (building.GetSelectionState() == true)
+            if (building != null && selection.GetSelectedObject().GetComponent<HouseFunctionality>() && selection.GetSelectedObject() != null)
             {
-                unitSpawnCanvasGroup.alpha = 1f;
-                unitSpawnCanvasGroup.blocksRaycasts = true;
-                unitSpawnCanvasGroup.interactable = true;
+                if (building.GetSelectionState() == true && selection.GetSelectedObject().GetComponent<HouseFunctionality>())
+                {
+                    unitSpawnCanvasGroup.alpha = 1f;
+                    unitSpawnCanvasGroup.blocksRaycasts = true;
+                    unitSpawnCanvasGroup.interactable = true;
+                }
+                else
+                {
+                    unitSpawnCanvasGroup.alpha = 0f;
+                    unitSpawnCanvasGroup.blocksRaycasts = false;
+                    unitSpawnCanvasGroup.interactable = false;
+                }
             }
             else
             {
@@ -57,7 +72,7 @@ public class HouseFunctionality : MonoBehaviour
                 unitSpawnCanvasGroup.interactable = false;
             }
         }
-        else
+        catch
         {
             unitSpawnCanvasGroup.alpha = 0f;
             unitSpawnCanvasGroup.blocksRaycasts = false;

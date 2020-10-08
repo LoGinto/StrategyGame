@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerOfRadius: {fileID: 1594858711685094061}
-  radius: 7.46
+  radius: 7.6
   redTransparent: {fileID: 2100000, guid: e7f75236fcf4f1748a3913cd8ff87b35, type: 2}
   whiteTransparent: {fileID: 2100000, guid: d1a629a65b707184a93ac504b27db7bc, type: 2}
 --- !u!1 &7358842686738209753

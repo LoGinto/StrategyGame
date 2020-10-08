@@ -24,7 +24,10 @@ public class SelectionCasst : MonoBehaviour
                         selectedObj = null;
                     }
                     selectedObj = hit.collider.gameObject;
-                    selectedObj.GetComponent<BuildingInteraction>().ClickedOn();
+                    if (selectedObj.GetComponent<BuildingInteraction>())
+                    {
+                        selectedObj.GetComponent<BuildingInteraction>().ClickedOn();
+                    }
                 }
             }
         }

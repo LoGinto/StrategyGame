@@ -191,11 +191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ce418174ac1ee48ab3934d27a7a205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCost: 5
   foodCost: 2
   objectToSpawn: {fileID: 5866062174356510385, guid: 83715ade6b85f504caba598380a73fed, type: 3}
   spawnAt: {fileID: 5384697920144828440}
   timeToWaitBeforeSpawn: 5
+  unitCost: {fileID: 11400000, guid: e9aff3918d4c5d040bb013f514178ea9, type: 2}
 --- !u!208 &5230721486098856063
 NavMeshObstacle:
   m_ObjectHideFlags: 0
