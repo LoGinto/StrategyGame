@@ -14,6 +14,12 @@ TagManager:
   - 2
   - 3
   - 4
+  - RecruitingCanvas
+  - AssasinRecruitmentText
+  - KnightRecruitmentText
+  - MagicianRecruitmentText
+  - ArcherRecruitmentText
+  - ShooterRecruitmentText
   layers:
   - Default
   - TransparentFX

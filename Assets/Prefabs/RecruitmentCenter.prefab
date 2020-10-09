@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2883544706113277530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8039703722418769322}
+  m_Layer: 9
+  m_Name: SpawnAt
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8039703722418769322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883544706113277530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0002, y: 0.0528, z: 0.0031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2977801248235700405}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2977801248235478165
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +43,7 @@ GameObject:
   - component: {fileID: 2977801248237470293}
   - component: {fileID: 6216547122126744099}
   - component: {fileID: 4025623857861999142}
+  - component: {fileID: 7437616241443891012}
   m_Layer: 9
   m_Name: RecruitmentCenter
   m_TagString: Untagged
@@ -27,13 +58,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977801248235478165}
-  m_LocalRotation: {x: 0.49611032, y: 0.5038597, z: 0.5038597, w: -0.49611032}
+  m_LocalRotation: {x: 0.0016415305, y: -0.7071049, z: -0.7071049, w: -0.0016415305}
   m_LocalPosition: {x: -62.949497, y: 0.00000047683716, z: 15.298969}
   m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
+  m_Children:
+  - {fileID: 8039703722418769322}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 269.112}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 539.734}
 --- !u!33 &2977801248238567573
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,3 +141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectingMat: {fileID: 2100000, guid: 1a177460346f6ea4985306c65257ba92, type: 2}
+--- !u!114 &7437616241443891012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977801248235478165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87be21c0965431949bff12c8d6fe070a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

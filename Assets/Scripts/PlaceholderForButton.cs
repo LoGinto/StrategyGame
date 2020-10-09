@@ -17,9 +17,7 @@ public class PlaceholderForButton : MonoBehaviour
         {
             selection.GetSelectedObject().GetComponent<HouseFunctionality>().Spawn();
         }
-        else if (selection.GetSelectedObject().GetComponent<WarUnitSpawn>())
-        {
-            selection.GetSelectedObject().GetComponent<WarUnitSpawn>().Spawn();
-        }
+        
     }
+    
 }
