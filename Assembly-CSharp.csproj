@@ -52,6 +52,7 @@
     <UnityVersion>2020.1.5f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\RecruitmentCenterEmptyScript.cs" />
     <Compile Include="Assets\Scripts\Serialization\SerializationManager.cs" />
     <Compile Include="Assets\Scripts\WarUnitSpawn.cs" />
     <Compile Include="Assets\Scripts\HouseFunctionality.cs" />
@@ -69,7 +70,10 @@
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Placement_BluePrint.cs" />
     <Compile Include="Assets\Scripts\UnitSelection.cs" />
-    <Compile Include="Assets\Scripts\RecruitmentCenterEmptyScript.cs" />
+    <Compile Include="Assets\Scripts\Combat\TIleMap.cs" />
+    <Compile Include="Assets\Scripts\Combat\TileType.cs" />
+    <Compile Include="Assets\Scripts\Combat\ClickableTile.cs" />
+    <Compile Include="Assets\Scripts\Combat\Unit.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Additional Models\Shader\Projector.shader" />
